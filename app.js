@@ -17,6 +17,8 @@
 //     console.log("Server is Up and Running on Port ", PORT);
 // })
 
+const PORT = process.env.PORT || 3000;
+
 const http = require("http");
 const requestListener = (req, res)=>{
     const responseData = {
@@ -31,4 +33,4 @@ const requestListener = (req, res)=>{
     res.end();
 }
 const httpServer = http.createServer(requestListener);
-httpServer.listen(3000);
+httpServer.listen(PORT);
