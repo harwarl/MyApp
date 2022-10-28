@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const bodyparser = require("body-parser");
 const PORT = process.env.PORT || 3000;
 
@@ -13,8 +14,8 @@ const responseData = {
 const jsonContent = JSON.stringify(responseData);
 
 app.use(bodyparser.urlencoded({extended: false}))
-
-app.get('/', (req, res, next)=>{
+app.use(cors());
+app.get('/task-done', cors(), (req, res, next)=>{
     res.send(jsonContent);
 })
 
