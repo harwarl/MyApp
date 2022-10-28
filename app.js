@@ -13,23 +13,8 @@ const responseData = {
 const jsonContent = JSON.stringify(responseData);
 
 app.use(bodyparser.urlencoded({extended: false}))
-app.use('/bio', (req, res)=>{
-    res.send(JSON.parse(jsonContent).bio);
-})
 
-app.use('/age', (req, res)=>{
-    res.send(JSON.parse(jsonContent).age.toString());
-})
-
-app.use('/backend', (req, res)=>{
-    res.send(JSON.parse(jsonContent).backend);
-})
-
-app.use('/slackUsername', (req, res)=>{
-    res.send(JSON.parse(jsonContent).slackUsername);
-})
-
-app.use('/', (req, res, next)=>{
+app.get('/', (req, res, next)=>{
     res.send(jsonContent);
 })
 
